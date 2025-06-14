@@ -1,9 +1,7 @@
-import React from "react";
-
-import styles from "./styles.module.css";
+import { Outlet } from "react-router-dom";
 
 const Auth = () => {
-  return <div className={styles.auth}>Auth</div>;
+  return <div><Outlet /></div>;
 };
 
 export default Auth;

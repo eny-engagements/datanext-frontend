@@ -1,0 +1,59 @@
+/* Base button customization */
+:global(.ant-btn) {
+  box-shadow: none;
+  font-size: 16px;
+  height: 42px;
+  border-radius: 8px;
+}
+
+/* Default Button */
+:global(.ant-btn-default) {
+  background-color: #2e2e38 !important;
+  color: white !important;
+  border: none !important;
+}
+:global(.ant-btn-default:hover) {
+  background: #1a1a24 !important;
+  border: none !important;
+}
+
+/* Primary Button */
+:global(.ant-btn-primary) {
+  background-color: white;
+  color: #1F1F2A;
+}
+:global(.ant-btn-primary:hover) {
+  background-color: white !important;
+  color: #1F1F2A !important;
+}
+
+/* Danger Button */
+:global(.ant-btn-dangerous) {
+  background-color: #cc3700 !important;
+  color: white !important;
+}
+:global(.ant-btn-dangerous:hover) {
+  background-color: #b13102 !important;
+}
+
+/* Text Button */
+:global(.ant-btn-text) {
+  color: #CACACF;
+  background-color: transparent !important;
+  padding: 0px 0px !important;
+  margin: 0px 0px !important;
+}
+:global(.ant-btn-text:hover) {
+  color: #F6F6FA;
+  background: transparent !important;
+}
+
+/* Disabled Button */
+:global(.ant-btn:disabled) {
+  background-color: #c4c4cd;
+  border-color: #747480 !important;
+  color: #747480 !important;
+}
+:global(.ant-btn:disabled:hover) {
+  background-color: #c4c4cd;
+}

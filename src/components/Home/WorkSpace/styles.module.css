@@ -1,0 +1,102 @@
+h2 {
+  margin: 0;
+  padding: 0;
+  color: #c4c4cd;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container {
+  height: calc(100vh - 150px);
+  padding: 20px 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabs {
+  background-color: #1a1a24;
+  width: 95%;
+  height: 100%;
+  margin-top: 20px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.customTabs :global(.ant-tabs-nav) {
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+.customTabs :global(.ant-tabs-tab) {
+  background-color: #1a1a24 !important;
+  border: none !important;
+  color: #c4c4cd !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin-right: 2px !important;
+  border-bottom: none !important; /* Add this */
+}
+
+.customTabs :global(.ant-tabs-tab-active) {
+  background-color: #2e2e38 !important;
+  color: #f6f6fa;
+  border-bottom: none !important; /* Add this */
+}
+
+.customTabs :global(.ant-tabs-content-holder) {
+  background-color: #1a1a24;
+  padding: 20px;
+}
+
+.customTabs :global(.ant-tabs-tab-remove) {
+  color: #c4c4cd !important;
+  margin-left: 8px !important;
+}
+
+.customTabs :global(.ant-tabs-tab-remove:hover) {
+  color: #fff !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+  border-bottom: none !important;
+}
+
+.ant-tabs-ink-bar {
+  display: none !important;
+}
+
+.tabLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabDot {
+  width: 6px;
+  height: 6px;
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+
+/* Make sure these are properly scoped */
+.customTabs :global(.ant-tabs-tab.ant-tabs-tab-active) {
+  border-bottom: none !important;
+}
+
+.customTabs :global(.ant-tabs-ink-bar) {
+  display: none !important;
+}
+
+/* Also hide the nav border */
+.customTabs :global(.ant-tabs-nav::before) {
+  border-bottom: none !important;
+}
+
+.customTabs :global(.ant-tabs-nav) {
+  background-color: transparent;
+  margin-bottom: 0;
+  border-bottom: none !important; /* Add this */
+}

@@ -1,0 +1,128 @@
+.inputContainer {
+  padding: 20px;
+}
+
+/* File chips styles */
+.fileChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fileChip {
+  display: flex;
+  align-items: center;
+  background: #2e2e38;
+  border: 1px solid #747480;
+  border-radius: 8px;
+  padding: 8px;
+  gap: 8px;
+  max-width: 200px;
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fileName {
+  color: #c4c4cd;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  color: #c4c4cd;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.removeFile {
+  background: none;
+  border: none;
+  color: #c4c4cd;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.removeFile:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.inputWrapper {
+  position: relative;
+  background: #1f1f2a;
+  border-radius: 24px;
+  border: 1px solid #ffeb3b;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.chatInput {
+  flex: 1;
+  background: #1f1f2a !important;
+  border: none !important;
+  color: white !important;
+  font-size: 14px;
+}
+
+.chatInput::placeholder {
+  color: #c4c4cd !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.chatInput:focus {
+  box-shadow: none !important;
+}
+
+.inputActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.attachButton,
+.sendButton {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.attachButton:hover,
+.sendButton:hover {
+  background-color: transparent !important;
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent !important;
+}
+
+.sendButton:disabled:hover {
+  background: transparent !important;
+}
+
+.sendButton:not(:disabled) {
+  color: #ffeb3b;
+}

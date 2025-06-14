@@ -1,0 +1,21 @@
+.container {
+  background-color: #2e2e38;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.container_left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container_left p {
+  color: #c4c4cd;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+}

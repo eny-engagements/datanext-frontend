@@ -1,0 +1,22 @@
+/* Target dropdown menu items */
+:global(.ant-dropdown-menu) {
+  background-color: #1a1a24 !important;
+  border: 1px solid #747480 !important;
+  border-radius: 12px !important;
+}
+
+:global(.ant-dropdown-menu-item) {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #c4c4cd !important;
+}
+
+:global(.ant-dropdown-menu-item:hover) {
+  background-color: #2e2e38 !important;
+}
+
+/* Target the trigger button */
+/* :global(.ant-btn-text) {
+  border: none;
+  box-shadow: none;
+} */

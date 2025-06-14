@@ -1,14 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Layout from "./Layout";
 import Auth from "./Auth";
+import Home from "./Home";
+import { LoginPage } from "./Auth/LoginPage";
+import { ResetPasswordPage } from "./Auth/ResetPasswordPage";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="auth" element={<Auth />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="auth" element={<Auth />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="reset-password" element={<ResetPasswordPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,15 @@
+/* Keep only specific styles not covered by AuthLayout */
+.form_item {
+  margin-bottom: 28px !important;
+}
+
+.form_item label {
+  color: #747480 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.submit_item {
+  margin-bottom: 0;
+  width: 100%;
+}

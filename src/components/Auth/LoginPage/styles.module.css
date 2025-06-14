@@ -1,0 +1,28 @@
+/* Keep only specific styles not covered by AuthLayout */
+.form_item label {
+  color: #c4c4cd !important;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.forgot_password {
+  text-align: right;
+  margin-bottom: 24px;
+  margin-top: -8px;
+}
+
+.forgot_link {
+  color: #747480;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.forgot_link:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.submit_item {
+  margin-bottom: 0;
+  width: 100%;
+}

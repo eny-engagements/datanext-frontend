@@ -1,0 +1,10 @@
+:global(.ant-form-item) {
+  margin-bottom: 0px !important;
+}
+
+:global(.ant-form-item .ant-form-item-label > label) {
+  color: #c4c4cd;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}

@@ -1,0 +1,267 @@
+.sidebar {
+  height: 100vh;
+  background-color: #1a1a24;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-right: 2px solid #2e2e38;
+}
+
+.collapsed {
+  width: 60px;
+}
+
+.expanded {
+  width: 340px;
+}
+
+.header {
+  padding: 16px 20px;
+  border-bottom: 2px solid #2e2e38;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 12px;
+}
+
+.collapsed .header {
+  justify-content: center;
+  padding: 16px 8px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+}
+
+.headerText {
+  color: #c4c4cd;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.collapsed .headerText {
+  opacity: 0;
+  transform: translateX(-10px); /* Slide effect */
+  width: 0;
+}
+
+.chatSection {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.newChatSection {
+  padding: 16px;
+}
+
+.newChatButton {
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.newChatButton:hover {
+  background-color: #333;
+  border-color: #555;
+}
+
+/* Keep the icon visible when collapsed */
+.collapsed .newChatButton {
+  justify-content: center;
+  padding: 8px;
+}
+
+.newChatText {
+  color: #c4c4cd;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.collapsed .newChatText {
+  opacity: 0;
+  transform: translateX(-10px);
+  width: 0;
+}
+
+.chatHistory {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.historySection {
+  margin-bottom: 24px;
+}
+
+.historyTitle {
+  color: #888;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 0 16px 8px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.collapsed .historyTitle {
+  opacity: 0;
+}
+
+.chatItem {
+  padding: 8px 16px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 8px;
+}
+
+.chatItem:hover {
+  background-color: #333;
+  color: white;
+}
+
+.collapsed .chatItem {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 8px 12px;
+}
+
+.footerItem {
+  padding: 12px 16px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+/* Keep the icon visible when collapsed */
+.collapsed .footerItem {
+  justify-content: center;
+  padding: 12px 8px;
+}
+
+.footerText {
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.collapsed .footerText {
+  opacity: 0;
+  width: 0;
+}
+
+.userInfo {
+  padding: 12px 16px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Keep the user icon visible when collapsed */
+.collapsed .userInfo {
+  justify-content: center;
+  padding: 12px 8px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.userDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s ease;
+}
+
+.userEmail {
+  color: #888;
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s ease;
+}
+
+.collapsed .userName,
+.collapsed .userEmail {
+  opacity: 0;
+  width: 0;
+}
+
+.toggleButton {
+  position: absolute;
+  top: 20px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: #1f1f1f;
+  border: 1px solid #444;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+/* Add this new rule to reposition the button when collapsed */
+.collapsed .toggleButton {
+  right: -24px; /* Move it further out to ensure visibility */
+  transform: rotate(180deg); /* Optional: flip the arrow direction */
+}
+
+.toggleButton:hover {
+  background-color: #333;
+  border-color: #555;
+}
