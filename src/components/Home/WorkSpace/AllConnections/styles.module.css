@@ -1,10 +1,8 @@
-:global(.ant-form-item) {
-  margin-bottom: 0px !important;
-}
-
-:global(.ant-form-item .ant-form-item-label > label) {
+.empty_message {
   color: #c4c4cd;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  line-height: 20px;
+  text-align: center;
 }

@@ -5,6 +5,8 @@ import "./styles.module.css";
 export default function Modal({
   children,
   title,
+  buttonType = "link",
+  buttonIcon,
   buttonContent,
   showFooter = true,
 }) {
@@ -20,7 +22,7 @@ export default function Modal({
   };
   return (
     <>
-      <Button type="link" onClick={showModal}>
+      <Button type={buttonType} icon={buttonIcon} onClick={showModal}>
         {buttonContent}
       </Button>
       <AntdModal

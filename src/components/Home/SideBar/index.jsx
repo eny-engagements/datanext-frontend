@@ -5,17 +5,46 @@ import BarIcon from "../assets/bar.svg";
 import EditIcon from "../assets/edit.svg";
 import SettingIcon from "../assets/setting.svg";
 import UserIcon from "../assets/user.svg";
+import Dropdown from "../../Global/Dropdown";
+import PencilIcon from "../assets/pencil.svg"
+import TrashIcon from "../assets/trash.svg"
 
 export function SideBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  const items = [
+    {
+      label: (
+        <a
+          href="https://www.antgroup.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Edit
+        </a>
+      ),
+      icon: <img src={PencilIcon} />,
+      key: "0",
+    },
+    {
+      label: (
+        <a
+          href="https://www.aliyun.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Delete
+        </a>
+      ),
+      icon: <img src={TrashIcon} />,
+      key: "1",
+    },
+  ];
+
   const chatHistory = [
     {
       title: "Today",
-      items: [
-        "Create a business glossary",
-        "Create a Lineage for the given d...",
-      ],
+      items: ["Create a business glossary", "Create a Lineage for the... "],
     },
   ];
 
@@ -61,7 +90,10 @@ export function SideBar() {
                 <div className={styles.historyTitle}>{section.title}</div>
                 {section.items.map((item, itemIndex) => (
                   <div key={itemIndex} className={styles.chatItem}>
-                    {item}
+                    <p>{item}</p>
+                    <div className={styles.dropdownWrapper}>
+                      <Dropdown items={items} />
+                    </div>
                   </div>
                 ))}
               </div>

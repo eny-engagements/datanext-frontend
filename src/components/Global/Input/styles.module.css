@@ -3,6 +3,7 @@
   padding: 8px 12px;
   border-radius: 8px;
   background-color: white;
+  color: #2e2e38 !important;
 }
 
 :global(.ant-input:hover) {

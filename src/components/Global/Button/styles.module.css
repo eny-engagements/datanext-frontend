@@ -6,6 +6,12 @@
   border-radius: 8px;
 }
 
+:global(.ant-btn-icon){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Default Button */
 :global(.ant-btn-default) {
   background-color: #2e2e38 !important;
@@ -44,6 +50,16 @@
   margin: 0px 0px !important;
 }
 :global(.ant-btn-text:hover) {
+  color: #F6F6FA;
+  background: transparent !important;
+}
+
+:global(.ant-btn-link) {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+:global(.ant-btn-link:hover) {
   color: #F6F6FA;
   background: transparent !important;
 }

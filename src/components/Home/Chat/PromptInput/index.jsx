@@ -3,17 +3,25 @@ import styles from "./styles.module.css";
 import AttachIcon from "../../assets/pin.svg";
 import SendIcon from "../../assets/send.svg";
 import FileIcon from "../../assets/file.svg";
-import { Input, Button, message, Upload } from "antd";
+import CancelIcon1 from "../../assets/cross1.svg";
+import CancelIcon2 from "../../assets/cross2.svg";
+import { Button, message, Upload, Mentions } from "antd";
 
 export function PromptInput({ inputValue, setInputValue, handleSend }) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [selectedModels, setSelectedModels] = useState([]);
+
+  const aiModels = [
+    { id: "discover", name: "Discover", value: "discover" },
+    { id: "define", name: "Define", value: "define" },
+    { id: "lineage", name: "Lineage Extractor", value: "lineage" },
+  ];
 
   const uploadProps = {
     name: "file",
     multiple: true,
     showUploadList: false,
     beforeUpload: (file) => {
-      // Add file immediately to the list without uploading
       const fileInfo = {
         uid: file.uid,
         name: file.name,
@@ -23,12 +31,9 @@ export function PromptInput({ inputValue, setInputValue, handleSend }) {
 
       setUploadedFiles((prev) => [...prev, fileInfo]);
       message.success(`${file.name} added successfully`);
-
-      // Return false to prevent automatic upload
       return false;
     },
     onChange(info) {
-      // This handles the case if you want to enable actual uploading later
       console.log("Upload change:", info);
     },
   };
@@ -44,6 +49,22 @@ export function PromptInput({ inputValue, setInputValue, handleSend }) {
     setUploadedFiles((prev) => prev.filter((file) => file.uid !== fileUid));
   };
 
+  const removeModel = (modelValue) => {
+    setSelectedModels((prev) =>
+      prev.filter((model) => model.value !== modelValue)
+    );
+    // Also remove from input text
+    const mentionPattern = new RegExp(`@${modelValue}\\s*`, "g");
+    setInputValue((prev) => prev.replace(mentionPattern, ""));
+  };
+
+  const handleMentionSelect = (option) => {
+    const model = aiModels.find((m) => m.value === option.value);
+    if (model && !selectedModels.find((m) => m.value === model.value)) {
+      setSelectedModels((prev) => [...prev, model]);
+    }
+  };
+
   const formatFileSize = (bytes) => {
     if (bytes === 0) return "0 Bytes";
     const k = 1024;
@@ -55,9 +76,9 @@ export function PromptInput({ inputValue, setInputValue, handleSend }) {
   return (
     <div className={styles.inputContainer}>
       <div className={styles.inputWrapper}>
-        {/* File chips display */}
+        {/* File chips */}
         {uploadedFiles.length > 0 && (
-          <div className={styles.fileChips}>
+          <div className={styles.chipsContainer}>
             {uploadedFiles.map((file) => (
               <div key={file.uid} className={styles.fileChip}>
                 <div className={styles.fileIcon}>
@@ -69,25 +90,48 @@ export function PromptInput({ inputValue, setInputValue, handleSend }) {
                     {formatFileSize(file.size)}
                   </span>
                 </div>
-                <button
-                  className={styles.removeFile}
+                <Button
                   onClick={() => removeFile(file.uid)}
-                  type="button"
-                >
-                  ×
-                </button>
+                  type="link"
+                  shape="circle"
+                  icon={<img src={CancelIcon1} />}
+                />
               </div>
             ))}
           </div>
         )}
+
+        {/* Model chips */}
+        {selectedModels.length > 0 && (
+          <div className={styles.chipsContainer}>
+            {selectedModels.map((model) => (
+              <div key={model.value} className={styles.modelChip}>
+                <p className={styles.modelName}>@{model.name}</p>
+                <Button
+                  onClick={() => removeModel(model.value)}
+                  style={{ height: "20px", width: "20px", minWidth: "0px" }}
+                  type="link"
+                  shape="circle"
+                  icon={<img src={CancelIcon2} />}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
         <div style={{ display: "flex", alignItems: "flex-end" }}>
-          <Input.TextArea
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyPress={handleKeyPress}
+          <Mentions
+            value={inputValue.replace(/@\w+\s*/g, "")}
+            onChange={setInputValue}
+            onKeyDown={handleKeyPress}
             placeholder="Ask anything or @mention an AI agent"
             className={styles.chatInput}
             autoSize={{ minRows: 3, maxRows: 10 }}
+            onSelect={handleMentionSelect}
+            options={aiModels.map((model) => ({
+              value: model.value,
+              label: model.name,
+            }))}
           />
           <div className={styles.inputActions}>
             <Upload {...uploadProps}>

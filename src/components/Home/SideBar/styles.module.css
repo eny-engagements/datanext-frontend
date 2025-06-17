@@ -76,8 +76,7 @@
 }
 
 .newChatButton:hover {
-  background-color: #333;
-  border-color: #555;
+  background-color: #2E2E38;
 }
 
 /* Keep the icon visible when collapsed */
@@ -126,7 +125,8 @@
 }
 
 .chatItem {
-  padding: 8px 16px;
+  padding: 0px 8px;
+  height: 40px;
   color: #ccc;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -135,11 +135,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownWrapper {
+  display: none;
 }
 
 .chatItem:hover {
   background-color: #333;
   color: white;
+}
+
+.chatItem:hover .dropdownWrapper{
+  display: block;
 }
 
 .collapsed .chatItem {

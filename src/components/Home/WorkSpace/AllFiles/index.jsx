@@ -7,7 +7,7 @@ export function AllFiles() {
   return (
     <Modal
       title={"All Files"}
-      buttonContent={<img src={FolderIcon} alt="Connect" />}
+      buttonIcon={<img src={FolderIcon} alt="Connect" />}
       showFooter={false}
     >
       <div className={styles.container}>
